@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | Your Name</title>
+  <meta name="description" content="Portfolio website showcasing the projects and skills of Your Name." />
+  <meta name="keywords" content="Portfolio, Your Name, Developer, Designer, Projects" />
+  <meta name="author" content="Your Name" />
+  <link rel="canonical" href="https://www.yourdomain.com/" />
+</head>
+<body>
+  <header role="banner">
+    <h1>Your Name</h1>
+    <nav role="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="#about" tabindex="0">About</a></li>
+        <li><a href="#projects" tabindex="0">Projects</a></li>
+        <li><a href="#contact" tabindex="0">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main role="main">
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About Me</h2>
+      <p>Brief introduction about your background and skills.</p>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">Projects</h2>
+      <article aria-labelledby="project1-title">
+        <h3 id="project1-title">Project 1</h3>
+        <p>Short description of the project.</p>
+      </article>
+      <article aria-labelledby="project2-title">
+        <h3 id="project2-title">Project 2</h3>
+        <p>Short description of the project.</p>
+      </article>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact Me</h2>
+      <form action="#" method="post" aria-label="Contact form">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required aria-required="true" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required aria-required="true" />
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+        </div>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2026 Your Name. All rights reserved.</p>
+  </footer>
+</body>
+</html>
