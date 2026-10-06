@@ -1,0 +1,1222 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Responsive personal portfolio website">
+
+    <title>Nithiyasree | Portfolio</title>
+
+
+    <style>
+
+        /* =========================================
+           CSS VARIABLES
+        ========================================= */
+
+        :root {
+
+            --primary: #6c63ff;
+            --secondary: #00bcd4;
+
+            --background: #ffffff;
+            --section-bg: #f5f7fb;
+            --card-bg: #ffffff;
+
+            --text: #222222;
+            --light-text: #666666;
+
+            --border: #dddddd;
+
+            --shadow:
+                0 10px 30px rgba(0, 0, 0, 0.08);
+
+            --transition: 0.3s ease;
+        }
+
+
+        /* =========================================
+           DARK MODE
+        ========================================= */
+
+        body.dark-mode {
+
+            --background: #121212;
+            --section-bg: #1c1c1c;
+            --card-bg: #242424;
+
+            --text: #ffffff;
+            --light-text: #cccccc;
+
+            --border: #444444;
+
+            --shadow:
+                0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background: var(--background);
+
+            color: var(--text);
+
+            line-height: 1.6;
+
+            transition:
+                background var(--transition),
+                color var(--transition);
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        .container {
+
+            width: 90%;
+
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            background: var(--background);
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+
+        .nav-container {
+
+            min-height: 70px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .logo {
+
+            color: var(--primary);
+
+            font-size: 1.5rem;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================================
+           NAVIGATION - FLEXBOX
+        ========================================= */
+
+        nav {
+
+            display: none;
+
+            gap: 20px;
+        }
+
+
+        nav a {
+
+            font-weight: bold;
+
+            transition:
+                color var(--transition);
+        }
+
+
+        nav a:hover {
+
+            color: var(--primary);
+        }
+
+
+        .theme-btn {
+
+            border: none;
+
+            background: transparent;
+
+            font-size: 1.4rem;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           HERO SECTION - GRID
+        ========================================= */
+
+        .hero {
+
+            min-height: 90vh;
+
+            width: 90%;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 60px 0;
+
+            display: grid;
+
+            grid-template-columns: 1fr;
+
+            align-items: center;
+
+            gap: 40px;
+        }
+
+
+        .hero-content {
+
+            text-align: center;
+        }
+
+
+        .small-text {
+
+            color: var(--primary);
+
+            font-weight: bold;
+        }
+
+
+        .hero h1 {
+
+            font-size: 2.5rem;
+
+            margin: 10px 0;
+        }
+
+
+        .hero h2 {
+
+            color: var(--light-text);
+
+            margin-bottom: 20px;
+        }
+
+
+        .hero p {
+
+            color: var(--light-text);
+        }
+
+
+        /* =========================================
+           BUTTONS - FLEXBOX
+        ========================================= */
+
+        .buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+
+        .btn {
+
+            display: inline-block;
+
+            padding: 12px 22px;
+
+            background: var(--primary);
+
+            color: white;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            border: 2px solid var(--primary);
+
+            cursor: pointer;
+
+            transition:
+                transform var(--transition);
+        }
+
+
+        .btn:hover {
+
+            transform: translateY(-4px);
+        }
+
+
+        .secondary-btn {
+
+            background: transparent;
+
+            color: var(--primary);
+        }
+
+
+        /* =========================================
+           PROFILE
+        ========================================= */
+
+        .profile {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+
+        .profile-circle {
+
+            width: 220px;
+
+            height: 220px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 3rem;
+
+            font-weight: bold;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            box-shadow: var(--shadow);
+        }
+
+
+        /* =========================================
+           COMMON SECTION
+        ========================================= */
+
+        section {
+
+            padding: 70px 0;
+        }
+
+
+        .section-bg {
+
+            background: var(--section-bg);
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            color: var(--primary);
+
+            font-size: 2rem;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* =========================================
+           ABOUT - GRID
+        ========================================= */
+
+        .about-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr;
+
+            gap: 25px;
+        }
+
+
+        .card {
+
+            background: var(--card-bg);
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            box-shadow: var(--shadow);
+
+            transition:
+                transform var(--transition);
+        }
+
+
+        .card:hover {
+
+            transform: translateY(-6px);
+        }
+
+
+        .card h3 {
+
+            margin-bottom: 15px;
+        }
+
+
+        .card p {
+
+            color: var(--light-text);
+        }
+
+
+        /* =========================================
+           SKILLS - GRID
+        ========================================= */
+
+        .skills-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr;
+
+            gap: 20px;
+        }
+
+
+        .skill {
+
+            text-align: center;
+
+            border: 1px solid var(--border);
+        }
+
+
+        .skill h3 {
+
+            color: var(--primary);
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================================
+           PROJECTS - GRID
+        ========================================= */
+
+        .projects-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr;
+
+            gap: 25px;
+        }
+
+
+        .project-icon {
+
+            font-size: 2.5rem;
+
+            margin-bottom: 15px;
+        }
+
+
+        .project h3 {
+
+            margin-bottom: 10px;
+        }
+
+
+        .project p {
+
+            color: var(--light-text);
+
+            margin-bottom: 15px;
+        }
+
+
+        .project-link {
+
+            color: var(--primary);
+
+            font-weight: bold;
+        }
+
+
+        /* =========================================
+           CONTACT - GRID
+        ========================================= */
+
+        .contact-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr;
+
+            gap: 40px;
+        }
+
+
+        .contact-info p {
+
+            color: var(--light-text);
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================================
+           FORM - FLEXBOX
+        ========================================= */
+
+        .contact-form {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+
+        .contact-form input,
+        .contact-form textarea {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 8px;
+
+            background: var(--card-bg);
+
+            color: var(--text);
+
+            font-size: 1rem;
+        }
+
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+
+            outline: none;
+
+            border-color: var(--primary);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 25px;
+
+            background: var(--card-bg);
+
+            border-top:
+                1px solid var(--border);
+
+            color: var(--light-text);
+        }
+
+
+        /* =========================================
+           TABLET - 600px
+        ========================================= */
+
+        @media (min-width: 600px) {
+
+            nav {
+                display: flex;
+            }
+
+
+            .hero {
+
+                grid-template-columns:
+                    1.5fr 1fr;
+            }
+
+
+            .hero-content {
+
+                text-align: left;
+            }
+
+
+            .buttons {
+
+                justify-content: flex-start;
+            }
+
+
+            .about-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .skills-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .projects-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        /* =========================================
+           DESKTOP - 900px
+        ========================================= */
+
+        @media (min-width: 900px) {
+
+            .hero h1 {
+
+                font-size: 4rem;
+            }
+
+
+            .skills-grid {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+
+            .projects-grid {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+
+            .contact-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+        }
+
+
+        /* =========================================
+           LARGE DESKTOP
+        ========================================= */
+
+        @media (min-width: 1200px) {
+
+            .hero {
+
+                gap: 100px;
+            }
+
+
+            .profile-circle {
+
+                width: 280px;
+
+                height: 280px;
+
+                font-size: 4rem;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="container nav-container">
+
+            <div class="logo">
+                Nithiyasree
+            </div>
+
+
+            <nav aria-label="Main Navigation">
+
+                <a href="#home">Home</a>
+
+                <a href="#about">About</a>
+
+                <a href="#skills">Skills</a>
+
+                <a href="#projects">Projects</a>
+
+                <a href="#contact">Contact</a>
+
+            </nav>
+
+
+            <button
+                class="theme-btn"
+                id="themeToggle"
+                aria-label="Toggle dark mode">
+
+                🌙
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main>
+
+
+        <!-- HOME -->
+
+        <section id="home">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <p class="small-text">
+                        Hello, I'm
+                    </p>
+
+
+                    <h1>
+                        Nithiyasree Gokul
+                    </h1>
+
+
+                    <h2>
+                        AI & ML Student | Web Developer
+                    </h2>
+
+
+                    <p>
+                        I am passionate about Artificial Intelligence,
+                        Machine Learning, Java and Web Development.
+                    </p>
+
+
+                    <div class="buttons">
+
+                        <a
+                            href="#projects"
+                            class="btn">
+
+                            View Projects
+
+                        </a>
+
+
+                        <a
+                            href="#contact"
+                            class="btn secondary-btn">
+
+                            Contact Me
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile">
+
+                    <div class="profile-circle">
+
+                        NG
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ABOUT -->
+
+        <section
+            id="about"
+            class="section-bg">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    About Me
+                </h2>
+
+
+                <div class="about-grid">
+
+
+                    <div class="card">
+
+                        <h3>
+                            Who Am I?
+                        </h3>
+
+                        <p>
+                            I am an AIML student interested in
+                            software development, Artificial
+                            Intelligence, Machine Learning and
+                            modern web technologies.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <h3>
+                            My Goal
+                        </h3>
+
+                        <p>
+                            My goal is to become a skilled
+                            software engineer and AI/ML developer
+                            by continuously improving my technical
+                            and problem-solving skills.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- SKILLS -->
+
+        <section id="skills">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    My Skills
+                </h2>
+
+
+                <div class="skills-grid">
+
+
+                    <div class="card skill">
+
+                        <h3>Java</h3>
+
+                        <p>
+                            OOP, Collections and
+                            Exception Handling
+                        </p>
+
+                    </div>
+
+
+                    <div class="card skill">
+
+                        <h3>HTML</h3>
+
+                        <p>
+                            Semantic HTML5 and
+                            accessible websites
+                        </p>
+
+                    </div>
+
+
+                    <div class="card skill">
+
+                        <h3>CSS</h3>
+
+                        <p>
+                            Flexbox, Grid and
+                            Responsive Design
+                        </p>
+
+                    </div>
+
+
+                    <div class="card skill">
+
+                        <h3>JavaScript</h3>
+
+                        <p>
+                            Basic JavaScript and DOM
+                        </p>
+
+                    </div>
+
+
+                    <div class="card skill">
+
+                        <h3>AI & ML</h3>
+
+                        <p>
+                            Machine Learning fundamentals
+                        </p>
+
+                    </div>
+
+
+                    <div class="card skill">
+
+                        <h3>Git & GitHub</h3>
+
+                        <p>
+                            Version control and
+                            project management
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PROJECTS -->
+
+        <section
+            id="projects"
+            class="section-bg">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    My Projects
+                </h2>
+
+
+                <div class="projects-grid">
+
+
+                    <article class="card project">
+
+                        <div class="project-icon">
+                            🤖
+                        </div>
+
+                        <h3>
+                            AI Traffic Management
+                        </h3>
+
+                        <p>
+                            An AI-based system designed to
+                            analyze traffic and improve
+                            traffic management.
+                        </p>
+
+                        <a
+                            href="#"
+                            class="project-link">
+
+                            View Project →
+
+                        </a>
+
+                    </article>
+
+
+                    <article class="card project">
+
+                        <div class="project-icon">
+                            🌐
+                        </div>
+
+                        <h3>
+                            Portfolio Website
+                        </h3>
+
+                        <p>
+                            A responsive personal portfolio
+                            created using HTML5 and advanced
+                            CSS3.
+                        </p>
+
+                        <a
+                            href="#"
+                            class="project-link">
+
+                            View Project →
+
+                        </a>
+
+                    </article>
+
+
+                    <article class="card project">
+
+                        <div class="project-icon">
+                            💻
+                        </div>
+
+                        <h3>
+                            Employee Payroll System
+                        </h3>
+
+                        <p>
+                            A Java-based application demonstrating
+                            object-oriented programming concepts.
+                        </p>
+
+                        <a
+                            href="#"
+                            class="project-link">
+
+                            View Project →
+
+                        </a>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CONTACT -->
+
+        <section id="contact">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Contact Me
+                </h2>
+
+
+                <div class="contact-grid">
+
+
+                    <div class="contact-info">
+
+                        <h3>
+                            Let's Connect
+                        </h3>
+
+                        <p>
+                            Feel free to contact me for
+                            projects, internships or
+                            learning opportunities.
+                        </p>
+
+                        <p>
+                            📧 example@gmail.com
+                        </p>
+
+                        <p>
+                            📱 +91 XXXXX XXXXX
+                        </p>
+
+                    </div>
+
+
+
+                    <form class="contact-form">
+
+
+                        <label for="name">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            rows="5"
+                            placeholder="Enter your message"
+                            required>
+                        </textarea>
+
+
+                        <button
+                            type="submit"
+                            class="btn">
+
+                            Send Message
+
+                        </button>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Nithiyasree Gokul.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        const themeToggle =
+            document.getElementById("themeToggle");
+
+
+        themeToggle.addEventListener(
+            "click",
+            function () {
+
+                document.body.classList.toggle(
+                    "dark-mode"
+                );
+
+
+                if (
+                    document.body.classList.contains(
+                        "dark-mode"
+                    )
+                ) {
+
+                    themeToggle.textContent = "☀️";
+
+                } else {
+
+                    themeToggle.textContent = "🌙";
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
+```
